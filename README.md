@@ -1,6 +1,6 @@
 # Pokémon Crystal
 
-This is a disassembly of Pokémon Crystal.
+This is an improved version of Pokémon Crystal with new features added to the original game.
 
 The following rom is used as a base:
 
@@ -12,8 +12,10 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 ## See also
 
 * Disassembly of [**Pokémon Red/Blue**][pokered]
+* Disassembly of [**Pokémon Crystal**][pokecrystal]
 * irc: **nucleus.kafuka.org** [**#skeetendo**][irc]
 
 [pokered]: https://github.com/iimarckus/pokered
+[pokecrystal]: https://github.com/kanzure/pokecrystal
 [irc]: https://kiwiirc.com/client/irc.nolimitzone.com/?#skeetendo
 
