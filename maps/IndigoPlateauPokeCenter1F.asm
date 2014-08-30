@@ -97,7 +97,7 @@ UnknownScript_0x1800ce: ; 0x1800ce
 	iftrue UnknownScript_0x180103
 	winlosstext UnknownText_0x180295, UnknownText_0x1802fd
 	setlasttalked $5
-	loadtrainer RIVAL2, 6
+	loadtrainer RIVAL2, 2
 	startbattle
 	reloadmapmusic
 	returnafterbattle
@@ -107,7 +107,7 @@ UnknownScript_0x1800ce: ; 0x1800ce
 UnknownScript_0x1800f3: ; 0x1800f3
 	winlosstext UnknownText_0x180295, UnknownText_0x1802fd
 	setlasttalked $5
-	loadtrainer RIVAL2, 4
+	loadtrainer RIVAL2, 2
 	startbattle
 	reloadmapmusic
 	returnafterbattle
@@ -117,7 +117,7 @@ UnknownScript_0x1800f3: ; 0x1800f3
 UnknownScript_0x180103: ; 0x180103
 	winlosstext UnknownText_0x180295, UnknownText_0x1802fd
 	setlasttalked $5
-	loadtrainer RIVAL2, 5
+	loadtrainer RIVAL2, 2
 	startbattle
 	reloadmapmusic
 	returnafterbattle

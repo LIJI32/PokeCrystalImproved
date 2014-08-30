@@ -62,6 +62,7 @@ UnknownScript_0x185c25: ; 0x185c25
 	applymovement $0, MovementData_0x185ccd
 	applymovement $4, MovementData_0x185ccf
 	playmusic MUSIC_RIVAL_ENCOUNTER
+	3callasm RivalAdd2
 	loadfont
 	2writetext UnknownText_0x185cd9
 	closetext
@@ -72,7 +73,7 @@ UnknownScript_0x185c25: ; 0x185c25
 	iftrue UnknownScript_0x185c70
 	winlosstext UnknownText_0x185d9b, UnknownText_0x185e2c
 	setlasttalked $4
-	loadtrainer RIVAL1, RIVAL1_9
+	loadtrainer RIVAL1, RIVAL1_3
 	startbattle
 	reloadmapmusic
 	returnafterbattle
@@ -82,7 +83,7 @@ UnknownScript_0x185c25: ; 0x185c25
 UnknownScript_0x185c60: ; 0x185c60
 	winlosstext UnknownText_0x185d9b, UnknownText_0x185e2c
 	setlasttalked $4
-	loadtrainer RIVAL1, RIVAL1_7
+	loadtrainer RIVAL1, RIVAL1_3
 	startbattle
 	reloadmapmusic
 	returnafterbattle
@@ -92,7 +93,7 @@ UnknownScript_0x185c60: ; 0x185c60
 UnknownScript_0x185c70: ; 0x185c70
 	winlosstext UnknownText_0x185d9b, UnknownText_0x185e2c
 	setlasttalked $4
-	loadtrainer RIVAL1, RIVAL1_8
+	loadtrainer RIVAL1, RIVAL1_3
 	startbattle
 	reloadmapmusic
 	returnafterbattle

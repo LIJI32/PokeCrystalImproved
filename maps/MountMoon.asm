@@ -36,7 +36,7 @@ UnknownScript_0x7408e: ; 0x7408e
 	iftrue UnknownScript_0x740d3
 	winlosstext UnknownText_0x7419d, UnknownText_0x742e0
 	setlasttalked $2
-	loadtrainer RIVAL2, 3
+	loadtrainer RIVAL2, 1
 	startbattle
 	reloadmapmusic
 	returnafterbattle
@@ -56,7 +56,7 @@ UnknownScript_0x740c3: ; 0x740c3
 UnknownScript_0x740d3: ; 0x740d3
 	winlosstext UnknownText_0x7419d, UnknownText_0x742e0
 	setlasttalked $2
-	loadtrainer RIVAL2, 2
+	loadtrainer RIVAL2, 1
 	startbattle
 	reloadmapmusic
 	returnafterbattle

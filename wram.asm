@@ -131,8 +131,14 @@ VBGMap1::
 
 SECTION "WRAMBank0",WRAM0[$c000]
 
+TypeScoring:: ds 17
+RivalBox:: ds 16
+RivalBoxSize:: ds 1
+MinScore:: ds 1
+RivalTeam:: ds 6
+
 SECTION "stack",WRAM0[$c0ff]
-Stack:: ds -$100 ; c0ff
+Stack:: ds -$D7 ; c0ff
 
 
 SECTION "audio",WRAM0[$c100]
@@ -1163,7 +1169,17 @@ BaseTMHM:: ; d24e
 CurDamage:: ; d256
 	ds 2
 
-
+SECTION "WildRate",WRAMX[$d25a],BANK[1]
+EncounterRatesGrass::
+EncounterRateGrassMorn::
+	ds 1
+EncounterRateGrassDay::
+	ds 1
+EncounterRateGrassNite::
+	ds 1	
+EncounterRateWater::
+	ds 1
+	
 SECTION "TimeOfDay",WRAMX[$d269],BANK[1]
 
 TimeOfDay:: ; d269
@@ -1395,7 +1411,7 @@ TMsHMsEnd::
 NumItems:: ; d892
 	ds 1
 Items:: ; d893
-	ds 41
+	ds 133
 ItemsEnd::
 
 NumKeyItems:: ; d8bc
@@ -1411,7 +1427,7 @@ Balls:: ; d8d8
 BallsEnd::
 
 PCItems:: ; d8f1
-	ds 101
+	ds 10
 PCItemsEnd::
 
 
@@ -1739,7 +1755,7 @@ BattleAnimByte:: ; d417
 	ds 1
 BattleAnimTemps:: ; d419
 	ds 8
-
+	
 
 SECTION "Scratch", SRAM, BANK[0]
 

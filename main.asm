@@ -801,12 +801,34 @@ Function46d7: ; 46d7
 	ret
 ; 46e9
 
+Running:
+	push af
+	ld a, b
+	cp PlayerStruct / $100
+	jr nz, .doNotRun
+	ld a, c
+	cp PlayerStruct & $ff
+	jr nz, .doNotRun
+	ld a, [CurInput]
+	and B_BUTTON
+	jr z, .doNotRun
+	pop af
+	and $3
+	or 8
+	ret
+
+.doNotRun
+	pop af
+	ret
+
+
 GetStepVector: ; 46e9
 ; Return (x, y, duration, speed) in (d, e, a, h).
 	ld hl, $0007
 	add hl, bc
 	ld a, [hl]
 	and $f
+	call Running
 	add a
 	add a
 	ld l, a
@@ -4951,31 +4973,10 @@ TitleScreenMain: ; 6304
 ; To bring up the clock reset dialog:
 
 ; Hold Down + B + Select to initiate the sequence.
-	ld a, [$ffeb]
-	cp $34
-	jr z, .check_clock_reset
 
 	ld a, [hl]
 	and D_DOWN + B_BUTTON + SELECT
 	cp  D_DOWN + B_BUTTON + SELECT
-	jr nz, .check_start
-
-	ld a, $34
-	ld [$ffeb], a
-	jr .check_start
-
-; Keep Select pressed, and hold Left + Up.
-; Then let go of Select.
-.check_clock_reset
-	bit 2, [hl] ; SELECT
-	jr nz, .check_start
-
-	xor a
-	ld [$ffeb], a
-
-	ld a, [hl]
-	and D_LEFT + D_UP
-	cp  D_LEFT + D_UP
 	jr z, .clock_reset
 
 ; Press Start or A to start the game.
@@ -5424,13 +5425,13 @@ Function65d3: ; 65d3
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	push af
-	push bc
-	call IsHMMove
-	pop bc
-	pop de
-	ld a, d
-	jr c, .asm_6660
+	;push af
+	;push bc
+	;call IsHMMove
+	;pop bc
+	;pop de
+	;ld a, d
+	;jr c, .asm_6660
 	pop hl
 	add hl, bc
 	and a
@@ -11125,25 +11126,25 @@ Functiond27b: ; d27b
 ; d283
 
 Functiond283: ; d283
-	ld c, 20
+	ld c, (ItemsEnd - Items - 1) / 2 ; Each item is 2 bytes, remove terminator
 	ld a, e
-	cp TMsHMsEnd % $100
+	cp NumItems % $100
 	jr nz, .asm_d28e
 	ld a, d
-	cp TMsHMsEnd / $100
+	cp NumItems / $100
 	ret z
 
 .asm_d28e
-	ld c, 50
+	ld c, (PCItemsEnd - PCItems - 2) / 2 ; Each item is 2 bytes, remove length and terminator
 	ld a, e
-	cp BallsEnd % $100
+	cp PCItems % $100
 	jr nz, .asm_d299
 	ld a, d
-	cp BallsEnd / $100
+	cp PCItems / $100
 	ret z
 
 .asm_d299
-	ld c, $c
+	ld c, (BallsEnd - Balls - 1) / 2 ; Each item is 2 bytes, remove terminator
 	ret
 ; d29c
 
@@ -14877,7 +14878,7 @@ Jumptable_10153: ; 10153
 ; 10159
 
 Function10159: ; 10159
-	callba Function2c7bf
+	callba Function2c7bf ; TM
 	ret c
 	callba Function2c7fb
 	jr c, .asm_10179
@@ -16253,7 +16254,7 @@ MenuData2_0x10a57: ; 0x10a57
 	db $ae ; flags
 	db 5, 8 ; rows, columns
 	db 2 ; horizontal spacing
-	dbw 0, $d892
+	dbw 0, NumItems
 	dbw BANK(Function24ab4), Function24ab4
 	dbw BANK(Function24ac3), Function24ac3
 	dbw BANK(Function244c3), Function244c3
@@ -16271,7 +16272,7 @@ MenuData2_0x10a6f: ; 0x10a6f
 	db $2e ; flags
 	db 5, 8 ; rows, columns
 	db 2 ; horizontal spacing
-	dbw 0, $d892
+	dbw 0, NumItems
 	dbw BANK(Function24ab4), Function24ab4
 	dbw BANK(Function24ac3), Function24ac3
 	dbw BANK(Function244c3), Function244c3
@@ -16289,7 +16290,7 @@ MenuData2_0x10a87: ; 0x10a87
 	db $ae ; flags
 	db 5, 8 ; rows, columns
 	db 1 ; horizontal spacing
-	dbw 0, $d8bc
+	dbw 0, NumKeyItems
 	dbw BANK(Function24ab4), Function24ab4
 	dbw BANK(Function24ac3), Function24ac3
 	dbw BANK(Function244c3), Function244c3
@@ -16307,7 +16308,7 @@ MenuData2_0x10a9f: ; 0x10a9f
 	db $2e ; flags
 	db 5, 8 ; rows, columns
 	db 1 ; horizontal spacing
-	dbw 0, $d8bc
+	dbw 0, NumKeyItems
 	dbw BANK(Function24ab4), Function24ab4
 	dbw BANK(Function24ac3), Function24ac3
 	dbw BANK(Function244c3), Function244c3
@@ -16325,7 +16326,7 @@ MenuData2_0x10ab7: ; 0x10ab7
 	db $ae ; flags
 	db 5, 8 ; rows, columns
 	db 2 ; horizontal spacing
-	dbw 0, $d8d7
+	dbw 0, NumBalls
 	dbw BANK(Function24ab4), Function24ab4
 	dbw BANK(Function24ac3), Function24ac3
 	dbw BANK(Function244c3), Function244c3
@@ -16343,7 +16344,7 @@ MenuData2_0x10acf: ; 0x10acf
 	db $2e ; flags
 	db 5, 8 ; rows, columns
 	db 2 ; horizontal spacing
-	dbw 0, $d8d7
+	dbw 0, NumBalls
 	dbw BANK(Function24ab4), Function24ab4
 	dbw BANK(Function24ac3), Function24ac3
 	dbw BANK(Function244c3), Function244c3
@@ -24805,6 +24806,10 @@ Function14dd7: ; 14dd7
 	ld de, $a833
 	ld bc, $0032
 	call CopyBytes
+	ld hl, RivalBox
+	ld de, $ac00
+	ld bc, $0011
+	call CopyBytes
 	jp CloseSRAM
 ; 14df7
 
@@ -25062,6 +25067,10 @@ Function14fd7: ; 14fd7 (5:4fd7)
 	ld hl, $a833
 	ld de, VisitedSpawns ; $dca5
 	ld bc, $32
+	call CopyBytes
+	ld hl, $ac00
+	ld de, RivalBox
+	ld bc, $11
 	call CopyBytes
 	call CloseSRAM
 	ld a, $1
@@ -25884,7 +25893,7 @@ MapSetupCommands: ; 15440
 	dbw BANK(LoadTilesetHeader), LoadTilesetHeader
 	dbw BANK(Function104750), Function104750
 	dbw BANK(Function1047eb), Function1047eb
-	dbw BANK(Function29ff8), Function29ff8
+	dbw BANK(LoadEncounterRates), LoadEncounterRates
 	dbw BANK(Function1047f0), Function1047f0
 	dbw BANK(Function1045b0), Function1045b0
 	dbw BANK(Function1045c4), Function1045c4
@@ -26014,7 +26023,7 @@ Function1551a: ; 1551a (5:551a)
 
 ; known jump sources: 154fd (5:54fd)
 Function1554e: ; 1554e (5:554e)
-	call Function1852
+	call IsSurfing
 	jr nz, .asm_15565
 	ld a, [PlayerState] ; $d95d
 	cp $4
@@ -40339,10 +40348,10 @@ Function29fe4: ; 29fe4
 	ret
 ; 29ff8
 
-Function29ff8: ; 29ff8
-	call Function2a205
+LoadEncounterRates: ; 29ff8
+	call GetWildGrassData
 	jr c, .asm_2a006
-	ld hl, $d25a
+	ld hl, EncounterRatesGrass
 	xor a
 	ld [hli], a
 	ld [hli], a
@@ -40351,7 +40360,7 @@ Function29ff8: ; 29ff8
 .asm_2a006
 	inc hl
 	inc hl
-	ld de, $d25a
+	ld de, EncounterRatesGrass
 	ld bc, $3
 	call CopyBytes
 .asm_2a011
@@ -40362,7 +40371,7 @@ Function29ff8: ; 29ff8
 	inc hl
 	ld a, [hl]
 .asm_2a01b
-	ld [$d25d], a
+	ld [EncounterRateWater], a
 	ret
 
 Function2a01f: ; 2a01f
@@ -40521,7 +40530,7 @@ Function2a0cf: ; 2a0cf
 
 Function2a0e7:: ; 2a0e7
 ; Try to trigger a wild encounter.
-	call Function2a103
+	call ShouldWildEncounter
 	jr nc, .asm_2a0f8
 	call Function2a14f
 	jr nz, .asm_2a0f8
@@ -40539,8 +40548,8 @@ Function2a0e7:: ; 2a0e7
 	ret
 ; 2a103
 
-Function2a103: ; 2a103
-	call Function2a111
+ShouldWildEncounter: ; 2a103
+	call GetCurrentEncounterRate
 	call Function2a124
 	call Function2a138
 	call Random
@@ -40548,9 +40557,9 @@ Function2a103: ; 2a103
 	ret
 ; 2a111
 
-Function2a111: ; 2a111
-	ld hl, $d25a
-	call Function1852
+GetCurrentEncounterRate: ; 2a111
+	ld hl, EncounterRatesGrass
+	call IsSurfing
 	ld a, 3
 	jr z, .asm_2a11e
 	ld a, [TimeOfDay]
@@ -40601,7 +40610,7 @@ Function2a138:: ; 2a138
 ; 2a14f
 
 Function2a14f: ; 2a14f
-	call Function2a200
+	call GetWildData
 	jp nc, .asm_2a1c1
 	call Function2a2ce
 	jp c, .asm_2a1c9
@@ -40609,7 +40618,7 @@ Function2a14f: ; 2a14f
 	inc hl
 	inc hl
 	inc hl
-	call Function1852
+	call IsSurfing
 	ld de, Unknown_2a1d9
 	jr z, .asm_2a174
 	inc hl
@@ -40643,7 +40652,7 @@ Function2a14f: ; 2a14f
 	add hl, bc
 	ld a, [hli]
 	ld b, a
-	call Function1852
+	call IsSurfing
 	jr nz, .asm_2a1aa
 
 	call Random
@@ -40663,7 +40672,37 @@ Function2a14f: ; 2a14f
 .asm_2a1aa
 	ld a, b
 	ld [CurPartyLevel], a
-	ld b, [hl]
+	ld b, [hl] ; Species of Wild Pokémon
+
+	call Random
+	and $3F ; 1 to 64
+	jr nz, .standard_encounter
+	
+	ld a, [CurPartyLevel]
+	add 8
+	ld [CurPartyLevel], a
+
+	push hl
+  	ld hl, RandomWater
+	call Random
+	and $1f
+	call IsSurfing
+	jr z, .random_not_surfing
+	ld hl, RandomGrass
+	call Random
+	and $7f
+.random_not_surfing
+	push de
+	ld d, 0
+	ld e, a
+	add hl, de
+	ld a, BANK(RandomGrass)
+	call GetFarByte
+	ld b, a
+	pop de
+	pop hl
+.standard_encounter
+
 	call Function2a4a0
 	jr c, .asm_2a1c1
 
@@ -40739,11 +40778,11 @@ Function2a1df:: ; 2a1df
 	ret
 ; 2a200
 
-Function2a200: ; 2a200
-	call Function1852
+GetWildData: ; 2a200
+	call IsSurfing
 	jr z, Function2a21d
 
-Function2a205: ; 2a205
+GetWildGrassData: ; 2a205
 	ld hl, WildMons5
 	ld bc, $002f
 	call asm_2a23d
@@ -40902,7 +40941,7 @@ InitRoamMons: ; 2a2a0
 
 Function2a2ce: ; 2a2ce
 	push hl
-	call Function1852
+	call IsSurfing
 	jr z, .asm_2a30a
 	call Function2a27f
 	call Random
@@ -41365,6 +41404,8 @@ INCLUDE "data/wild/swarm_grass.asm"
 
 WildMons6: ; 0x2b92f
 INCLUDE "data/wild/swarm_water.asm"
+
+INCLUDE "data/random_pokemon.asm"
 
 
 Function2b930: ; 2b930
@@ -42591,7 +42632,7 @@ Function2c867: ; 2c867
 
 	ld c, $5
 	callab ChangeHappiness
-	call Function2cb0c
+	;call Function2cb0c ; Reduce TM
 	jr .asm_2c8bd
 
 .asm_2c8b6
@@ -43642,7 +43683,380 @@ TrainerTypes: ; 397e3
 	dw TrainerType2 ; level, species, moves
 	dw TrainerType3 ; level, species, item
 	dw TrainerType4 ; level, species, item, moves
+	dw TrainerType5 ; level
 ; 397eb
+
+GetTypes: ; Stores the types for species a in registers b and c
+	push hl
+	push de
+	push af
+	dec a
+	ld hl, BaseData + 7 ; Type
+	ld bc, BaseData1 - BaseData0
+	call AddNTimes
+	ld a, BANK(BaseData)
+	call GetFarByte
+	cp 9
+	jr c, .do_not_sub
+	sub 10
+.do_not_sub:
+	cp 5
+	jr c, .do_not_sub3
+	dec a
+.do_not_sub3:
+	ld b, a
+	inc hl
+	ld a, BANK(BaseData)
+	call GetFarByte
+	cp 9
+	jr c, .do_not_sub2
+	sub 10
+.do_not_sub2:
+	cp 5
+	jr c, .do_not_sub4
+	dec a
+.do_not_sub4:
+	ld c, a
+	pop af
+	pop de
+	pop hl
+	ret
+
+; Increases typing for types bc
+IncreaseTyping:
+	; Increase typing score for Type 1
+	push af
+	push hl
+	push bc
+	ld b, 0
+	ld hl, TypeScoring
+	add hl, bc
+	ld a, [hl]
+	inc a
+	ld [hl], a
+	pop bc
+	
+	; Increase typing score for Type 2
+	push bc
+	ld c, b
+	ld b, 0
+	ld hl, TypeScoring
+	add hl, bc
+	ld a, [hl]
+	inc a
+	ld [hl], a
+	pop bc
+	pop hl
+	pop af
+	ret
+
+; Gets score for type bc to a
+ScoreForType:
+	; Increase typing score for Type 1
+	push de
+	push hl
+	push bc
+	ld b, 0
+	ld hl, TypeScoring
+	add hl, bc
+	ld a, [hl]
+	ld d, a
+	pop bc
+	
+	; Increase typing score for Type 2
+	push bc
+	ld c, b
+	ld b, 0
+	ld hl, TypeScoring
+	add hl, bc
+	ld a, [hl]
+	add a, d
+	pop bc
+	pop hl
+	pop de
+	ret
+
+GetTeamPokemon:
+	ld c, 16
+	push de
+	call Random
+	ld d, a
+
+.seek_best_match
+	push bc ; Save RivalBox slots remaining
+
+	    push de ; Save random start
+	        ; hl = RivalBox + (c+d) % 16
+	        ld a, d
+	        add a, c
+	        and $f
+	        ld e, a
+	        ld d, 0
+	        ld hl, RivalBox
+	        add hl, de
+	    pop de ; Restore random start
+	    ld a, [hl]
+
+	    call GetTypes
+	    ld e, a
+	    call ScoreForType
+	    push af ; Save Score
+	        ld a, [MinScore]
+	        ld b, a
+	    pop af ; Restore Score
+	    cp a, b
+	    ld a, e
+	pop bc; Restore RivalBox slots remaining
+	jr z, .done
+	dec c
+	jr nz, .seek_best_match
+
+; No match found, increase requested score and retry
+	ld a, [MinScore]
+	inc a
+	ld [MinScore], a
+	pop de
+	jr GetTeamPokemon
+
+.done
+	pop de
+	ret
+
+BuildTeam:
+	push bc
+	push de
+	push hl
+	xor a
+	ld b, 17
+	ld hl, TypeScoring
+.zero_scoring
+	ld [hli], a
+	dec b
+	jr nz, .zero_scoring
+
+	ld de, RivalTeam
+	
+	; Start with a random Pokémon from the box
+	call Random
+	and 15
+	ld c, a
+	ld b, 0
+	ld hl, RivalBox
+	add hl, bc
+	ld a, [hl]
+	
+	; Store first Pokémon
+	ld [de], a
+	inc de
+
+	; Get its types and increase typing score
+	call GetTypes
+	call IncreaseTyping
+	
+	ld b, 5
+	
+	xor a
+	ld [MinScore], a
+
+.add_pokemons
+	call GetTeamPokemon
+	ld [de], a
+	inc de
+	push bc
+	call GetTypes
+	call IncreaseTyping
+	pop bc
+	dec b
+	jr nz, .add_pokemons
+
+	pop hl
+	pop de
+	pop bc
+	ret
+
+GetPokemonEvoLevel::
+	ld hl, EvosAttacksPointers
+	dec a
+	ld b, 0
+	ld c, a
+	add hl, bc
+	add hl, bc
+	ld a, BANK(EvosAttacksPointers)
+	call GetFarByte
+	inc hl
+	ld c, a
+	ld a, BANK(EvosAttacksPointers)
+	call GetFarByte
+	ld h, a
+	ld l, c
+	ld a, BANK(EvosAttacksPointers)
+	call GetFarByte
+	inc hl
+	cp 0
+	ret z
+	cp 1
+	jr z, .LevelEvo
+	cp 2
+	jr z, .ItemEvo
+	cp 3
+	jr z, .TradeEvo
+	cp 4
+	jr z, .HappinessEvo
+	cp 5
+	jr z, .StatEvo
+	ret
+.LevelEvo
+.StatEvo
+	ld a, BANK(EvosAttacksPointers)
+	call GetFarByte
+	ret
+.ItemEvo
+.TradeEvo
+	ld a, 40
+	ret
+.HappinessEvo
+	ld a, 25
+	ret
+
+GetRandomEvo::
+	push af
+	call Random
+	and $f
+	ld d, a
+	inc d
+	ld hl, EvosAttacksPointers
+	pop af
+	dec a
+	ld b, 0
+	ld c, a
+	add hl, bc
+	add hl, bc
+	ld a, BANK(EvosAttacksPointers)
+	call GetFarByte
+	inc hl
+	ld c, a
+	ld a, BANK(EvosAttacksPointers)
+	call GetFarByte
+	ld b, a
+.backToFirst
+	ld h, b
+	ld l, c
+.loop
+	ld a, BANK(EvosAttacksPointers)
+	call GetFarByte
+	inc hl
+	and a
+	jr z, .backToFirst
+	inc hl ; First parameter
+	cp 5
+	jr nz, .oneParameterOnly
+	inc hl
+.oneParameterOnly
+	ld a, BANK(EvosAttacksPointers)
+	call GetFarByte
+	inc hl
+	dec d
+	ret z
+	jr .loop
+
+
+EvolveBox:
+	ld d, 16
+	ld e, a
+	ld hl, RivalBox
+.loop
+	ld a, [hl]
+	push hl
+	push de
+	call GetPokemonEvoLevel
+	pop de
+	pop hl
+	and a
+	jr z, .continue
+	dec a
+	cp e
+	jr nc, .continue
+	ld a, [hl]
+	push de
+	push hl
+	push bc
+	call GetRandomEvo
+	pop bc
+	pop hl
+	pop de
+	ld [hl], a
+
+.continue
+	inc hl
+	dec d
+	ret z
+	jr .loop
+
+
+TrainerType5:
+; normal (level, species)
+	ld h, d
+	ld l, e
+	ld a, [hl]
+	push hl
+	call EvolveBox
+	pop hl
+	call BuildTeam
+	ld de, RivalTeam
+	push hl
+.countLoop
+	ld a, [hli]
+	inc de
+	inc a
+	jr nz, .countLoop
+	pop hl
+	dec de
+.loop
+	ld a, [hli]
+	cp $ff
+	ret z
+
+	ld [CurPartyLevel], a
+	dec de
+	ld a, [de]
+	ld [CurPartySpecies], a
+	ld a, OTPARTYMON
+	ld [MonType], a
+	push hl
+	push de
+	predef Functiond88c
+	pop de
+	pop hl
+	jr .loop
+
+Mul125::
+	push bc
+	ld b, a
+	sra b
+	sra b
+	add a, b
+	pop bc
+	ret
+	
+; a is Pokémon, b is current level, returns new Pokémon in d
+; Will only evolve once.
+EvolveIfNeeded:
+	push af
+	push bc
+	call GetPokemonEvoLevel
+	pop bc
+	ld c, a
+	pop de
+	and a
+	ret z
+	dec a
+	cp b
+	ret nc
+	ld a, d
+	call GetRandomEvo
+	ld d, a
+	ret
+
 
 TrainerType1: ; 397eb
 ; normal (level, species)
@@ -43652,9 +44066,16 @@ TrainerType1: ; 397eb
 	ld a, [hli]
 	cp $ff
 	ret z
-
+	call Mul125
 	ld [CurPartyLevel], a
+	ld b, a
 	ld a, [hli]
+	push hl
+	push de
+	call EvolveIfNeeded
+	ld a, d
+	pop de
+	pop hl
 	ld [CurPartySpecies], a
 	ld a, OTPARTYMON
 	ld [MonType], a
@@ -43672,9 +44093,16 @@ TrainerType2: ; 39806
 	ld a, [hli]
 	cp $ff
 	ret z
-
+	call Mul125
 	ld [CurPartyLevel], a
+	ld b, a
 	ld a, [hli]
+	push hl
+	push de
+	call EvolveIfNeeded
+	ld a, d
+	pop de
+	pop hl
 	ld [CurPartySpecies], a
 	ld a, OTPARTYMON
 	ld [MonType], a
@@ -43749,9 +44177,16 @@ TrainerType3: ; 39871
 	ld a, [hli]
 	cp $ff
 	ret z
-
+	call Mul125
 	ld [CurPartyLevel], a
+	ld b, a
 	ld a, [hli]
+	push hl
+	push de
+	call EvolveIfNeeded
+	ld a, d
+	pop de
+	pop hl
 	ld [CurPartySpecies], a
 	ld a, OTPARTYMON
 	ld [MonType], a
@@ -43778,9 +44213,16 @@ TrainerType4: ; 3989d
 	ld a, [hli]
 	cp $ff
 	ret z
-
+	call Mul125
 	ld [CurPartyLevel], a
+	ld b, a
 	ld a, [hli]
+	push hl
+	push de
+	call EvolveIfNeeded
+	ld a, d
+	pop de
+	pop hl
 	ld [CurPartySpecies], a
 
 	ld a, OTPARTYMON
@@ -43859,7 +44301,7 @@ TrainerType4: ; 3989d
 .copied_pp
 
 	pop hl
-	jr .loop
+	jp .loop
 ; 3991b
 
 Function3991b: ; 3991b (e:591b)
@@ -55034,8 +55476,8 @@ Function4d3b1: ; 4d3b1
 	ld a, [$cfa9]
 	cp $1
 	ret z
-	call Function4d41e
-	jr c, .asm_4d3f7
+	; call Function4d41e
+	; jr c, .asm_4d3f7
 	ld a, $0
 	call GetSRAMBank
 	ld a, $80
@@ -59259,7 +59701,7 @@ Function506ef: ; 506ef
 	ld hl, StatusFlags2
 	bit 2, [hl]
 	jr nz, .asm_50712
-	callba Function2a111
+	callba GetCurrentEncounterRate
 	ld a, b
 	and a
 	jr z, .asm_5071e
@@ -77169,15 +77611,15 @@ Unknown_8d822: 	db $39,$20, $ff
 Unknown_8d825: 	db $3b,$02, $3a,$02, $3b,$02, $ff
 Unknown_8d82c: 	db $3c,$20, $ff
 Unknown_8d82f: 	db $41,$08, $42,$08, $41,$08, $42,$48, $fe
-                db $43,$08, $44,$08, $fe
-                db $45,$08, $46,$08, $fe
-                db $47,$08, $48,$08, $fe
-                db $49,$01, $49,$41, $49,$c1, $49,$81, $fe
-                db $4a,$20, $ff
-                db $4b,$20, $ff
-                db $4c,$20, $ff
-                db $4d,$20, $ff
-                db $4e,$03, $fd,$03, $fe
+	            db $43,$08, $44,$08, $fe
+	            db $45,$08, $46,$08, $fe
+	            db $47,$08, $48,$08, $fe
+	            db $49,$01, $49,$41, $49,$c1, $49,$81, $fe
+	            db $4a,$20, $ff
+	            db $4b,$20, $ff
+	            db $4c,$20, $ff
+	            db $4d,$20, $ff
+	            db $4e,$03, $fd,$03, $fe
 Unknown_8d861: 	db $fd,$20, $ff
 Unknown_8d864: 	db $4f,$20, $ff
 Unknown_8d867: 	db $50,$02, $51,$10, $fd,$01, $52,$01, $fd,$01, $53,$01, $fc
@@ -88249,7 +88691,7 @@ Functionb8cf2: ; b8cf2 (2e:4cf2)
 Unknown_b8d3e: db $0b, $0d, $0e, $0f, $10
 Unknown_b8d43: db $11, $12, $13, $15, $1a, $23, $2e, $40
 Unknown_b8d4b: db $09, $0a, $0c, $2a, $3f
-               db $ff
+	           db $ff
 ; b8d51
 
 UnknownText_0xb8d51: ; 0xb8d51

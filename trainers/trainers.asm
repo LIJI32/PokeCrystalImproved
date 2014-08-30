@@ -284,10 +284,10 @@ Rival1Group:
 
 	; RIVAL1 (1)
 	db "?@"
-	db 0 ; normal
+	db 4 ; normal
 
 	; party
-	db 5, CHIKORITA
+	db 5, 7
 
 	db $ff ; end
 
@@ -295,10 +295,10 @@ Rival1Group:
 
 	; RIVAL1 (2)
 	db "?@"
-	db 0 ; normal
+	db 4 ; normal
 
 	; party
-	db 5, CYNDAQUIL
+	db 20, 21, 22, 22
 
 	db $ff ; end
 
@@ -306,10 +306,10 @@ Rival1Group:
 
 	; RIVAL1 (3)
 	db "?@"
-	db 0 ; normal
+	db 4 ; normal
 
 	; party
-	db 5, TOTODILE
+	db 30, 32, 32, 33, 34, 34
 
 	db $ff ; end
 
@@ -317,12 +317,10 @@ Rival1Group:
 
 	; RIVAL1 (4)
 	db "?@"
-	db 0 ; normal
+	db 4 ; normal
 
 	; party
-	db 12, GASTLY
-	db 14, ZUBAT
-	db 16, BAYLEEF
+	db 40, 42, 42, 43, 44, 44
 
 	db $ff ; end
 
@@ -330,387 +328,13 @@ Rival1Group:
 
 	; RIVAL1 (5)
 	db "?@"
-	db 0 ; normal
+	db 4 ; normal
 
 	; party
-	db 12, GASTLY
-	db 14, ZUBAT
-	db 16, QUILAVA
+	db 50, 50, 52, 52, 53, 53
 
 	db $ff ; end
 
-; ================
-
-	; RIVAL1 (6)
-	db "?@"
-	db 0 ; normal
-
-	; party
-	db 12, GASTLY
-	db 14, ZUBAT
-	db 16, CROCONAW
-
-	db $ff ; end
-
-; ================
-
-	; RIVAL1 (7)
-	db "?@"
-	db 1 ; moves
-
-	; party
-
-	db 20, HAUNTER
-		db LICK
-		db SPITE
-		db MEAN_LOOK
-		db CURSE
-
-	db 18, MAGNEMITE
-		db TACKLE
-		db THUNDERSHOCK
-		db SUPERSONIC
-		db SONICBOOM
-
-	db 20, ZUBAT
-		db LEECH_LIFE
-		db SUPERSONIC
-		db BITE
-		db CONFUSE_RAY
-
-	db 22, BAYLEEF
-		db GROWL
-		db REFLECT
-		db RAZOR_LEAF
-		db POISONPOWDER
-
-	db $ff ; end
-
-; ================
-
-	; RIVAL1 (8)
-	db "?@"
-	db 1 ; moves
-
-	; party
-
-	db 20, HAUNTER
-		db LICK
-		db SPITE
-		db MEAN_LOOK
-		db CURSE
-
-	db 18, MAGNEMITE
-		db TACKLE
-		db THUNDERSHOCK
-		db SUPERSONIC
-		db SONICBOOM
-
-	db 20, ZUBAT
-		db LEECH_LIFE
-		db SUPERSONIC
-		db BITE
-		db CONFUSE_RAY
-
-	db 22, QUILAVA
-		db LEER
-		db SMOKESCREEN
-		db EMBER
-		db QUICK_ATTACK
-
-	db $ff ; end
-
-; ================
-
-	; RIVAL1 (9)
-	db "?@"
-	db 1 ; moves
-
-	; party
-
-	db 20, HAUNTER
-		db LICK
-		db SPITE
-		db MEAN_LOOK
-		db CURSE
-
-	db 18, MAGNEMITE
-		db TACKLE
-		db THUNDERSHOCK
-		db SUPERSONIC
-		db SONICBOOM
-
-	db 20, ZUBAT
-		db LEECH_LIFE
-		db SUPERSONIC
-		db BITE
-		db CONFUSE_RAY
-
-	db 22, CROCONAW
-		db LEER
-		db RAGE
-		db WATER_GUN
-		db BITE
-
-	db $ff ; end
-
-; ================
-
-	; RIVAL1 (10)
-	db "?@"
-	db 1 ; moves
-
-	; party
-
-	db 30, GOLBAT
-		db LEECH_LIFE
-		db BITE
-		db CONFUSE_RAY
-		db WING_ATTACK
-
-	db 28, MAGNEMITE
-		db TACKLE
-		db THUNDERSHOCK
-		db SONICBOOM
-		db THUNDER_WAVE
-
-	db 30, HAUNTER
-		db LICK
-		db MEAN_LOOK
-		db CURSE
-		db SHADOW_BALL
-
-	db 32, SNEASEL
-		db LEER
-		db QUICK_ATTACK
-		db SCREECH
-		db FAINT_ATTACK
-
-	db 32, MEGANIUM
-		db REFLECT
-		db RAZOR_LEAF
-		db POISONPOWDER
-		db BODY_SLAM
-
-	db $ff ; end
-
-; ================
-
-	; RIVAL1 (11)
-	db "?@"
-	db 1 ; moves
-
-	; party
-
-	db 30, GOLBAT
-		db LEECH_LIFE
-		db BITE
-		db CONFUSE_RAY
-		db WING_ATTACK
-
-	db 28, MAGNEMITE
-		db TACKLE
-		db THUNDERSHOCK
-		db SONICBOOM
-		db THUNDER_WAVE
-
-	db 30, HAUNTER
-		db LICK
-		db MEAN_LOOK
-		db CURSE
-		db SHADOW_BALL
-
-	db 32, SNEASEL
-		db LEER
-		db QUICK_ATTACK
-		db SCREECH
-		db FAINT_ATTACK
-
-	db 32, QUILAVA
-		db SMOKESCREEN
-		db EMBER
-		db QUICK_ATTACK
-		db FLAME_WHEEL
-
-	db $ff ; end
-
-; ================
-
-	; RIVAL1 (12)
-	db "?@"
-	db 1 ; moves
-
-	; party
-
-	db 30, GOLBAT
-		db LEECH_LIFE
-		db BITE
-		db CONFUSE_RAY
-		db WING_ATTACK
-
-	db 28, MAGNEMITE
-		db TACKLE
-		db THUNDERSHOCK
-		db SONICBOOM
-		db THUNDER_WAVE
-
-	db 30, HAUNTER
-		db LICK
-		db MEAN_LOOK
-		db CURSE
-		db SHADOW_BALL
-
-	db 32, SNEASEL
-		db LEER
-		db QUICK_ATTACK
-		db SCREECH
-		db FAINT_ATTACK
-
-	db 32, FERALIGATR
-		db RAGE
-		db WATER_GUN
-		db BITE
-		db SCARY_FACE
-
-	db $ff ; end
-
-; ================
-
-	; RIVAL1 (13)
-	db "?@"
-	db 1 ; moves
-
-	; party
-
-	db 34, SNEASEL
-		db QUICK_ATTACK
-		db SCREECH
-		db FAINT_ATTACK
-		db FURY_CUTTER
-
-	db 36, GOLBAT
-		db LEECH_LIFE
-		db BITE
-		db CONFUSE_RAY
-		db WING_ATTACK
-
-	db 35, MAGNETON
-		db THUNDERSHOCK
-		db SONICBOOM
-		db THUNDER_WAVE
-		db SWIFT
-
-	db 35, HAUNTER
-		db MEAN_LOOK
-		db CURSE
-		db SHADOW_BALL
-		db CONFUSE_RAY
-
-	db 35, KADABRA
-		db DISABLE
-		db PSYBEAM
-		db RECOVER
-		db FUTURE_SIGHT
-
-	db 38, MEGANIUM
-		db REFLECT
-		db RAZOR_LEAF
-		db POISONPOWDER
-		db BODY_SLAM
-
-	db $ff ; end
-
-; ================
-
-	; RIVAL1 (14)
-	db "?@"
-	db 1 ; moves
-
-	; party
-
-	db 34, SNEASEL
-		db QUICK_ATTACK
-		db SCREECH
-		db FAINT_ATTACK
-		db FURY_CUTTER
-
-	db 36, GOLBAT
-		db LEECH_LIFE
-		db BITE
-		db CONFUSE_RAY
-		db WING_ATTACK
-
-	db 35, MAGNETON
-		db THUNDERSHOCK
-		db SONICBOOM
-		db THUNDER_WAVE
-		db SWIFT
-
-	db 35, HAUNTER
-		db MEAN_LOOK
-		db CURSE
-		db SHADOW_BALL
-		db CONFUSE_RAY
-
-	db 35, KADABRA
-		db DISABLE
-		db PSYBEAM
-		db RECOVER
-		db FUTURE_SIGHT
-
-	db 38, TYPHLOSION
-		db SMOKESCREEN
-		db EMBER
-		db QUICK_ATTACK
-		db FLAME_WHEEL
-
-	db $ff ; end
-
-; ================
-
-	; RIVAL1 (15)
-	db "?@"
-	db 1 ; moves
-
-	; party
-
-	db 34, SNEASEL
-		db QUICK_ATTACK
-		db SCREECH
-		db FAINT_ATTACK
-		db FURY_CUTTER
-
-	db 36, GOLBAT
-		db LEECH_LIFE
-		db BITE
-		db CONFUSE_RAY
-		db WING_ATTACK
-
-	db 34, MAGNETON
-		db THUNDERSHOCK
-		db SONICBOOM
-		db THUNDER_WAVE
-		db SWIFT
-
-	db 35, HAUNTER
-		db MEAN_LOOK
-		db CURSE
-		db SHADOW_BALL
-		db CONFUSE_RAY
-
-	db 35, KADABRA
-		db DISABLE
-		db PSYBEAM
-		db RECOVER
-		db FUTURE_SIGHT
-
-	db 38, FERALIGATR
-		db RAGE
-		db WATER_GUN
-		db SCARY_FACE
-		db SLASH
-
-	db $ff ; end
 
 ; ================
 ; ================================
@@ -732,34 +356,34 @@ WillGroup:
 
 	; party
 
-	db 40, XATU
-		db QUICK_ATTACK
-		db FUTURE_SIGHT
+	db 41, SLOWKING
+		db SURF
+		db BLIZZARD
 		db CONFUSE_RAY
 		db PSYCHIC_M
 
-	db 41, JYNX
-		db DOUBLESLAP
-		db LOVELY_KISS
-		db ICE_PUNCH
+	db 41, ESPEON
+		db SHADOW_BALL
+		db TOXIC
+		db BITE
 		db PSYCHIC_M
 
 	db 41, EXEGGUTOR
-		db REFLECT
+		db SLEEP_POWDER
 		db LEECH_SEED
-		db EGG_BOMB
-		db PSYCHIC_M
+		db SOLARBEAM
+		db DREAM_EATER
 
-	db 41, SLOWBRO
+	db 41, STARMIE
+		db HYDRO_PUMP
+		db THUNDER
 		db CURSE
-		db AMNESIA
-		db BODY_SLAM
 		db PSYCHIC_M
 
-	db 42, XATU
-		db QUICK_ATTACK
-		db FUTURE_SIGHT
-		db CONFUSE_RAY
+	db 42, ALAKAZAM
+		db ICE_PUNCH
+		db THUNDERPUNCH
+		db FIRE_PUNCH
 		db PSYCHIC_M
 
 	db $ff ; end
@@ -841,11 +465,11 @@ BrunoGroup:
 		db FIRE_PUNCH
 		db MACH_PUNCH
 
-	db 43, ONIX
-		db BIND
+	db 43, HERACROSS
+		db MEGAHORN
 		db EARTHQUAKE
-		db SANDSTORM
-		db ROCK_SLIDE
+		db REVERSAL
+		db COUNTER
 
 	db 46, MACHAMP
 		db ROCK_SLIDE
@@ -875,17 +499,17 @@ KarenGroup:
 		db FAINT_ATTACK
 		db MEAN_LOOK
 
-	db 42, VILEPLUME
-		db STUN_SPORE
-		db ACID
-		db MOONLIGHT
-		db PETAL_DANCE
+	db 42, SNEASEL
+		db ICE_PUNCH
+		db FAINT_ATTACK
+		db METAL_CLAW
+		db BEAT_UP
 
-	db 45, GENGAR
-		db LICK
-		db SPITE
-		db CURSE
-		db DESTINY_BOND
+	db 45, TYRANITAR
+		db ROCK_SLIDE
+		db OUTRAGE
+		db EARTHQUAKE
+		db CRUNCH
 
 	db 44, MURKROW
 		db QUICK_ATTACK
@@ -915,23 +539,23 @@ KogaGroup:
 
 	; party
 
-	db 40, ARIADOS
-		db DOUBLE_TEAM
-		db SPIDER_WEB
-		db BATON_PASS
-		db GIGA_DRAIN
-
-	db 41, VENOMOTH
-		db SUPERSONIC
-		db GUST
-		db PSYCHIC_M
+	db 40, NIDOKING
+		db EARTHQUAKE
+		db SHADOW_BALL
+		db IRON_TAIL
 		db TOXIC
 
-	db 43, FORRETRESS
-		db PROTECT
-		db SWIFT
-		db EXPLOSION
-		db SPIKES
+	db 41, TENTACRUEL
+		db SLUDGE_BOMB
+		db SURF
+		db ICE_BEAM
+		db TOXIC
+
+	db 43, VENUSAUR
+		db SYNTHESIS
+		db LEECH_SEED
+		db PETAL_DANCE
+		db TOXIC
 
 	db 42, MUK
 		db MINIMIZE
@@ -5580,277 +5204,22 @@ Rival2Group:
 
 	; RIVAL2 (1)
 	db "?@"
-	db 1 ; moves
-
+	db 4 ; normal
+	
 	; party
-
-	db 41, SNEASEL
-		db QUICK_ATTACK
-		db SCREECH
-		db FAINT_ATTACK
-		db FURY_CUTTER
-
-	db 42, GOLBAT
-		db LEECH_LIFE
-		db BITE
-		db CONFUSE_RAY
-		db WING_ATTACK
-
-	db 41, MAGNETON
-		db THUNDERSHOCK
-		db SONICBOOM
-		db THUNDER_WAVE
-		db SWIFT
-
-	db 43, GENGAR
-		db MEAN_LOOK
-		db CURSE
-		db SHADOW_BALL
-		db CONFUSE_RAY
-
-	db 43, ALAKAZAM
-		db DISABLE
-		db RECOVER
-		db FUTURE_SIGHT
-		db PSYCHIC_M
-
-	db 45, MEGANIUM
-		db RAZOR_LEAF
-		db POISONPOWDER
-		db BODY_SLAM
-		db LIGHT_SCREEN
+	db 55, 55, 55, 56, 56, 56
 
 	db $ff ; end
-
-; ================
 
 	; RIVAL2 (2)
 	db "?@"
-	db 1 ; moves
-
+	db 4 ; normal
+	
 	; party
-
-	db 41, SNEASEL
-		db QUICK_ATTACK
-		db SCREECH
-		db FAINT_ATTACK
-		db FURY_CUTTER
-
-	db 42, GOLBAT
-		db LEECH_LIFE
-		db BITE
-		db CONFUSE_RAY
-		db WING_ATTACK
-
-	db 41, MAGNETON
-		db THUNDERSHOCK
-		db SONICBOOM
-		db THUNDER_WAVE
-		db SWIFT
-
-	db 43, GENGAR
-		db MEAN_LOOK
-		db CURSE
-		db SHADOW_BALL
-		db CONFUSE_RAY
-
-	db 43, ALAKAZAM
-		db DISABLE
-		db RECOVER
-		db FUTURE_SIGHT
-		db PSYCHIC_M
-
-	db 45, TYPHLOSION
-		db SMOKESCREEN
-		db QUICK_ATTACK
-		db FLAME_WHEEL
-		db SWIFT
-
+	db 60, 60, 61, 61, 62, 62
+	
 	db $ff ; end
 
-; ================
-
-	; RIVAL2 (3)
-	db "?@"
-	db 1 ; moves
-
-	; party
-
-	db 41, SNEASEL
-		db QUICK_ATTACK
-		db SCREECH
-		db FAINT_ATTACK
-		db FURY_CUTTER
-
-	db 42, GOLBAT
-		db LEECH_LIFE
-		db BITE
-		db CONFUSE_RAY
-		db WING_ATTACK
-
-	db 41, MAGNETON
-		db THUNDERSHOCK
-		db SONICBOOM
-		db THUNDER_WAVE
-		db SWIFT
-
-	db 43, GENGAR
-		db MEAN_LOOK
-		db CURSE
-		db SHADOW_BALL
-		db CONFUSE_RAY
-
-	db 43, ALAKAZAM
-		db DISABLE
-		db RECOVER
-		db FUTURE_SIGHT
-		db PSYCHIC_M
-
-	db 45, FERALIGATR
-		db RAGE
-		db WATER_GUN
-		db SCARY_FACE
-		db SLASH
-
-	db $ff ; end
-
-; ================
-
-	; RIVAL2 (4)
-	db "?@"
-	db 1 ; moves
-
-	; party
-
-	db 45, SNEASEL
-		db QUICK_ATTACK
-		db SCREECH
-		db FAINT_ATTACK
-		db FURY_CUTTER
-
-	db 48, CROBAT
-		db TOXIC
-		db BITE
-		db CONFUSE_RAY
-		db WING_ATTACK
-
-	db 45, MAGNETON
-		db THUNDER
-		db SONICBOOM
-		db THUNDER_WAVE
-		db SWIFT
-
-	db 46, GENGAR
-		db MEAN_LOOK
-		db CURSE
-		db SHADOW_BALL
-		db CONFUSE_RAY
-
-	db 46, ALAKAZAM
-		db RECOVER
-		db FUTURE_SIGHT
-		db PSYCHIC_M
-		db REFLECT
-
-	db 50, MEGANIUM
-		db GIGA_DRAIN
-		db BODY_SLAM
-		db LIGHT_SCREEN
-		db SAFEGUARD
-
-	db $ff ; end
-
-; ================
-
-	; RIVAL2 (5)
-	db "?@"
-	db 1 ; moves
-
-	; party
-
-	db 45, SNEASEL
-		db QUICK_ATTACK
-		db SCREECH
-		db FAINT_ATTACK
-		db FURY_CUTTER
-
-	db 48, CROBAT
-		db TOXIC
-		db BITE
-		db CONFUSE_RAY
-		db WING_ATTACK
-
-	db 45, MAGNETON
-		db THUNDER
-		db SONICBOOM
-		db THUNDER_WAVE
-		db SWIFT
-
-	db 46, GENGAR
-		db MEAN_LOOK
-		db CURSE
-		db SHADOW_BALL
-		db CONFUSE_RAY
-
-	db 46, ALAKAZAM
-		db RECOVER
-		db FUTURE_SIGHT
-		db PSYCHIC_M
-		db REFLECT
-
-	db 50, TYPHLOSION
-		db SMOKESCREEN
-		db QUICK_ATTACK
-		db FIRE_BLAST
-		db SWIFT
-
-	db $ff ; end
-
-; ================
-
-	; RIVAL2 (6)
-	db "?@"
-	db 1 ; moves
-
-	; party
-
-	db 45, SNEASEL
-		db QUICK_ATTACK
-		db SCREECH
-		db FAINT_ATTACK
-		db FURY_CUTTER
-
-	db 48, CROBAT
-		db TOXIC
-		db BITE
-		db CONFUSE_RAY
-		db WING_ATTACK
-
-	db 45, MAGNETON
-		db THUNDER
-		db SONICBOOM
-		db THUNDER_WAVE
-		db SWIFT
-
-	db 46, GENGAR
-		db MEAN_LOOK
-		db CURSE
-		db SHADOW_BALL
-		db CONFUSE_RAY
-
-	db 46, ALAKAZAM
-		db RECOVER
-		db FUTURE_SIGHT
-		db PSYCHIC_M
-		db REFLECT
-
-	db 50, FERALIGATR
-		db SURF
-		db RAIN_DANCE
-		db SLASH
-		db SCREECH
-
-	db $ff ; end
 
 ; ================
 ; ================================

@@ -1526,7 +1526,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1534,7 +1534,7 @@ Item2Attributes:
 	dw 2000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1542,7 +1542,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1550,7 +1550,7 @@ Item2Attributes:
 	dw 2000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1566,7 +1566,7 @@ Item2Attributes:
 	dw 1000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1574,7 +1574,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1582,7 +1582,7 @@ Item2Attributes:
 	dw 2000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1590,7 +1590,7 @@ Item2Attributes:
 	dw 1000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1598,7 +1598,7 @@ Item2Attributes:
 	dw 1000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1606,7 +1606,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1614,7 +1614,7 @@ Item2Attributes:
 	dw 2000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1622,7 +1622,7 @@ Item2Attributes:
 	dw 1000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1630,7 +1630,7 @@ Item2Attributes:
 	dw 1000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1638,7 +1638,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1646,7 +1646,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1654,7 +1654,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1662,7 +1662,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1670,7 +1670,7 @@ Item2Attributes:
 	dw 2000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1678,7 +1678,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1686,7 +1686,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1694,7 +1694,7 @@ Item2Attributes:
 	dw 1000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1702,7 +1702,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1710,7 +1710,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1718,7 +1718,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1726,7 +1726,7 @@ Item2Attributes:
 	dw 2000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1734,7 +1734,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1742,7 +1742,7 @@ Item2Attributes:
 	dw 1000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1750,7 +1750,7 @@ Item2Attributes:
 	dw 2000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1766,7 +1766,7 @@ Item2Attributes:
 	dw 2000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1774,7 +1774,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1782,7 +1782,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1790,7 +1790,7 @@ Item2Attributes:
 	dw 2000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1798,7 +1798,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1806,7 +1806,7 @@ Item2Attributes:
 	dw 1000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1814,7 +1814,7 @@ Item2Attributes:
 	dw 1000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1822,7 +1822,7 @@ Item2Attributes:
 	dw 1000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1830,7 +1830,7 @@ Item2Attributes:
 	dw 2000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1838,7 +1838,7 @@ Item2Attributes:
 	dw 2000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1846,7 +1846,7 @@ Item2Attributes:
 	dw 2000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1854,7 +1854,7 @@ Item2Attributes:
 	dw 1000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1862,7 +1862,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1870,7 +1870,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1878,7 +1878,7 @@ Item2Attributes:
 	dw 1000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1886,7 +1886,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1894,7 +1894,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1902,7 +1902,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1910,7 +1910,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1918,7 +1918,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1926,7 +1926,7 @@ Item2Attributes:
 	dw 3000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 
@@ -1934,7 +1934,7 @@ Item2Attributes:
 	dw 2000 ; price
 	db NONE ; effect
 	db 0 ; param
-	db CANT_SELECT
+	db CANT_SELECT | CANT_TOSS
 	db TM_HM
 	db $50 ; party menu
 

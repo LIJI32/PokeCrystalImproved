@@ -171,6 +171,9 @@ CaterpieEvosAttacks:
 MetapodEvosAttacks:
 	db EVOLVE_LEVEL,10,BUTTERFREE
 	db 0 ; no more evolutions
+	; Allow wild/trainer Metapods to use Tackle and String Shot
+	db 1,TACKLE
+	db 1,STRING_SHOT
 	db 1,HARDEN
 	db 7,HARDEN
 	db 0 ; no more level-up moves
@@ -199,6 +202,9 @@ WeedleEvosAttacks:
 KakunaEvosAttacks:
 	db EVOLVE_LEVEL,10,BEEDRILL
 	db 0 ; no more evolutions
+	; Allow wild/trainer Kakuna to use Poison Sting and String Shot
+	db 1,POISON_STING
+	db 1,STRING_SHOT
 	db 1,HARDEN
 	db 7,HARDEN
 	db 0 ; no more level-up moves

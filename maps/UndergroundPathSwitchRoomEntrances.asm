@@ -130,6 +130,7 @@ UnknownScript_0x7cad4: ; 0x7cad4
 	domaptrigger GROUP_BURNED_TOWER_1F, MAP_BURNED_TOWER_1F, $1
 UnknownScript_0x7cae1: ; 0x7cae1
 	playmusic MUSIC_RIVAL_ENCOUNTER
+	3callasm RivalAdd3
 	loadfont
 	2writetext UnknownText_0x7ce9d
 	closetext
@@ -141,7 +142,7 @@ UnknownScript_0x7cae1: ; 0x7cae1
 	iftrue UnknownScript_0x7cb19
 	winlosstext UnknownText_0x7cf5d, UnknownText_0x7d102
 	setlasttalked $c
-	loadtrainer RIVAL1, RIVAL1_12
+	loadtrainer RIVAL1, RIVAL1_4
 	startbattle
 	reloadmapmusic
 	returnafterbattle
@@ -151,7 +152,7 @@ UnknownScript_0x7cae1: ; 0x7cae1
 UnknownScript_0x7cb09: ; 0x7cb09
 	winlosstext UnknownText_0x7cf5d, UnknownText_0x7d102
 	setlasttalked $c
-	loadtrainer RIVAL1, RIVAL1_10
+	loadtrainer RIVAL1, RIVAL1_4
 	startbattle
 	reloadmapmusic
 	returnafterbattle
@@ -161,7 +162,7 @@ UnknownScript_0x7cb09: ; 0x7cb09
 UnknownScript_0x7cb19: ; 0x7cb19
 	winlosstext UnknownText_0x7cf5d, UnknownText_0x7d102
 	setlasttalked $c
-	loadtrainer RIVAL1, RIVAL1_11
+	loadtrainer RIVAL1, RIVAL1_4
 	startbattle
 	reloadmapmusic
 	returnafterbattle

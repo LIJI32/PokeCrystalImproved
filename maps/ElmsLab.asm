@@ -183,6 +183,7 @@ CyndaquilPokeBallScript: ; 0x78c73
 	iffalse DidntChooseStarterScript
 	disappear $4
 	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	3callasm FillTotodile
 	2writetext ChoseStarterText
 	keeptextopen
 	waitbutton
@@ -214,6 +215,7 @@ TotodilePokeBallScript: ; 0x78cb5
 	iffalse DidntChooseStarterScript
 	disappear $5
 	setevent EVENT_GOT_TOTODILE_FROM_ELM
+	3callasm FillChikorita
 	2writetext ChoseStarterText
 	keeptextopen
 	waitbutton
@@ -243,6 +245,7 @@ ChikoritaPokeBallScript: ; 0x78cf1
 	iffalse DidntChooseStarterScript
 	disappear $6
 	setevent EVENT_GOT_CHIKORITA_FROM_ELM
+	3callasm FillCyndaquil
 	2writetext ChoseStarterText
 	keeptextopen
 	waitbutton
@@ -1556,3 +1559,26 @@ ElmsLab_MapEventHeader: ; 0x7a3de
 	person_event SPRITE_OFFICER, 7, 9, $7, $0, 255, 255, $90, 0, CopScript, $0702
 ; 0x7a4cc
 
+FillChikorita::
+	ld b, CHIKORITA
+	ld a, CYNDAQUIL
+	jr FillBox
+FillTotodile::
+	ld b, TOTODILE
+	ld a, CHIKORITA
+	jr FillBox
+FillCyndaquil::
+	ld b, CYNDAQUIL
+	ld a, TOTODILE
+FillBox:
+	ld hl, RivalBox
+	ld c, 15
+	ld [hli], a
+	ld a, b
+.fillLoop
+	ld [hli], a
+	dec c
+	jr nz, .fillLoop
+	ld a, 2
+	ld [RivalBoxSize], a
+	ret

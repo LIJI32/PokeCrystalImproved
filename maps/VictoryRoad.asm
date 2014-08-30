@@ -52,6 +52,7 @@ UnknownScript_0x744b5: ; 0x744b5
 UnknownScript_0x744d4: ; 0x744d4
 	spriteface $0, $0
 	playmusic MUSIC_RIVAL_ENCOUNTER
+	3callasm RivalAdd4
 	loadfont
 	2writetext UnknownText_0x7455f
 	closetext
@@ -63,7 +64,7 @@ UnknownScript_0x744d4: ; 0x744d4
 	iftrue UnknownScript_0x7450f
 	winlosstext UnknownText_0x7463d, UnknownText_0x747aa
 	setlasttalked $2
-	loadtrainer RIVAL1, RIVAL1_15
+	loadtrainer RIVAL1, RIVAL1_5
 	startbattle
 	reloadmapmusic
 	returnafterbattle
@@ -73,7 +74,7 @@ UnknownScript_0x744d4: ; 0x744d4
 UnknownScript_0x744ff: ; 0x744ff
 	winlosstext UnknownText_0x7463d, UnknownText_0x747aa
 	setlasttalked $2
-	loadtrainer RIVAL1, RIVAL1_13
+	loadtrainer RIVAL1, RIVAL1_5
 	startbattle
 	reloadmapmusic
 	returnafterbattle
@@ -83,7 +84,7 @@ UnknownScript_0x744ff: ; 0x744ff
 UnknownScript_0x7450f: ; 0x7450f
 	winlosstext UnknownText_0x7463d, UnknownText_0x747aa
 	setlasttalked $2
-	loadtrainer RIVAL1, RIVAL1_14
+	loadtrainer RIVAL1, RIVAL1_5
 	startbattle
 	reloadmapmusic
 	returnafterbattle

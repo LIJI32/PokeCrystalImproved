@@ -83,7 +83,7 @@ Function184a:: ; 184a
 	ret
 ; 1852
 
-Function1852:: ; 1852
+IsSurfing:: ; 1852
 	ld a, [StandingTile]
 	call GetTileCollision
 	sub 1

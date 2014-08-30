@@ -54,6 +54,7 @@ UnknownScript_0x198034: ; 0x198034
 	spriteface $0, $1
 UnknownScript_0x198049: ; 0x198049
 	playmusic MUSIC_RIVAL_ENCOUNTER
+	3callasm RivalAdd1
 	loadfont
 	2writetext UnknownText_0x19814d
 	closetext
@@ -65,7 +66,7 @@ UnknownScript_0x198049: ; 0x198049
 	iftrue UnknownScript_0x198081
 	winlosstext UnknownText_0x1981e6, UnknownText_0x19835b
 	setlasttalked $b
-	loadtrainer RIVAL1, RIVAL1_6
+	loadtrainer RIVAL1, RIVAL1_2
 	startbattle
 	reloadmapmusic
 	returnafterbattle
@@ -75,7 +76,7 @@ UnknownScript_0x198049: ; 0x198049
 UnknownScript_0x198071: ; 0x198071
 	winlosstext UnknownText_0x1981e6, UnknownText_0x19835b
 	setlasttalked $b
-	loadtrainer RIVAL1, RIVAL1_4
+	loadtrainer RIVAL1, RIVAL1_2
 	startbattle
 	reloadmapmusic
 	returnafterbattle
@@ -85,12 +86,88 @@ UnknownScript_0x198071: ; 0x198071
 UnknownScript_0x198081: ; 0x198081
 	winlosstext UnknownText_0x1981e6, UnknownText_0x19835b
 	setlasttalked $b
-	loadtrainer RIVAL1, RIVAL1_5
+	loadtrainer RIVAL1, RIVAL1_2
 	startbattle
 	reloadmapmusic
 	returnafterbattle
 	2jump UnknownScript_0x198091
 ; 0x198091
+
+RivalAdd1::
+	ld a, [RivalBoxSize]
+	cp 2
+	ret nz
+	call RivalAdd
+	call RivalAdd
+	call RivalAdd
+	ret
+
+RivalAdd2::
+	ld a, [RivalBoxSize]
+	cp 5
+	ret nz
+	call RivalAdd
+	call RivalAdd
+	call RivalAdd
+	ret
+
+RivalAdd3::
+	ld a, [RivalBoxSize]
+	cp 8
+	ret nz
+	call RivalAdd
+	call RivalAdd
+	call RivalAdd
+	call RivalAdd
+	ret
+	
+RivalAdd4::
+	ld a, [RivalBoxSize]
+	cp 12
+	ret nz
+	call RivalAdd
+	call RivalAdd
+	call RivalAddLegend
+	call RivalAddLegend
+	ret
+	
+RivalAdd::
+	call Random
+	and $7f
+	ld d, 0
+	ld e, a
+	ld hl, RandomRival
+	add hl, de
+	ld a, BANK(RandomRival)
+	call GetFarByte
+	and a
+	jr z, RivalAdd ; Null Pokémon
+_RivalAdd::
+	ld b, a
+	ld hl, RivalBox
+	ld a, [RivalBoxSize]
+	ld e, a
+	inc a
+	ld [RivalBoxSize], a
+	add hl, de
+	ld a, b
+	ld [hl], a
+	ret
+
+RivalAddLegend::
+	call Random
+	and $f
+	ld d, 0
+	ld e, a
+	ld hl, RandomLegendary
+	add hl, de
+	ld a, BANK(RandomRival)
+	call GetFarByte
+	and a
+	jr z, RivalAddLegend ; Null Pokémon
+	jr _RivalAdd
+
+	
 
 UnknownScript_0x198091: ; 0x198091
 	playmusic MUSIC_RIVAL_AFTER
